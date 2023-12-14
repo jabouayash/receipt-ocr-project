@@ -43,8 +43,7 @@ def extract_text_with_tesseract(image_path, bounding_boxes):
 
         # Crop and preprocess the region of interest (ROI)
         roi = image_rgb[y:y+h, x:x+w]
-        roi = cv2.cvtColor(roi, cv2.COLOR_RGB2GRAY)  # Convert to grayscale
-        roi = cv2.threshold(roi, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)[1]  # Apply thresholding
+
 
         # Perform OCR on the preprocessed ROI
         custom_config = r'--oem 1 --psm 7'  # LSTM-based OCR, treating the image as a single text line
