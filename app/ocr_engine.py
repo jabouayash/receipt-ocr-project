@@ -2,13 +2,7 @@ import cv2
 import pytesseract
 from PIL import Image
 import easyocr
-LEVELS = {
-    'page_num': 1,
-    'block_num': 2,
-    'par_num': 3,
-    'line_num': 4,
-    'word_num': 5
-}
+
 def get_tesseract_bounding_boxes(image):
     custom_config = r'--psm 4' 
     boxes_data = pytesseract.image_to_data(image, config=custom_config, output_type=pytesseract.Output.DICT)
